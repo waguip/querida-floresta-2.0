@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 using DigitalRuby.RainMaker;
 using System;
+using System.Threading;
 
 public class Scene9Controller : MonoBehaviour
 {
 
     public int correct;
     float audioLength;
-
+    [SerializeField] private GoogleSheetsController sheetsController;
     [SerializeField] private AudioController audioController;
     [SerializeField] private Scene9NarratorController narratorController;
     [SerializeField] private Scene9CanvasController canvasController;
@@ -53,6 +54,13 @@ public class Scene9Controller : MonoBehaviour
         audioController.sceneCompletedSound();        
         narratorController.Invoke("playCongratsAudio", 3f);
         audioLength = narratorController.congratsAudioLength() + 5f;
+
+        if(!Player.Instance.ScenesCompleted[5]) {
+            //sendDataToReport();
+            new Thread(sheetsController.SavePlayerProgress).Start();
+            Player.Instance.ScenesCompleted[5] = true;
+        }
+
         sceneLoader.Invoke("loadQuiz", audioLength);
     }
 }

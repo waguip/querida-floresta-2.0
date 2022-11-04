@@ -12,7 +12,8 @@ public class CanvasPFController : MonoBehaviour
         GameObject[] rewards = {reward1Obj, reward2Obj, reward3Obj};
 
         for (int i = rewards.Length - 1; i >= 0; --i)
-            if(Player.Instance.ScenesCompleted[i]) rewards[i].SetActive(true);
+            if(Player.Instance.ScenesCompleted[i])
+                rewards[i].SetActive(true);
     }
 
     public void setLockedEffect()

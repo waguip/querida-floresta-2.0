@@ -374,7 +374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.32678235, y: 0.40267098}
   m_AnchorMax: {x: 0.64743537, y: 0.828329}
-  m_AnchoredPosition: {x: 45.308044, y: 226.84343}
+  m_AnchoredPosition: {x: 45.308044, y: 226.84348}
   m_SizeDelta: {x: 355.2709, y: 382.16437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &156771188
@@ -2796,7 +2796,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2111742016}
-        m_MethodName: quitGame
+        m_MethodName: loadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3259,6 +3259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correct: 0
+  sheetsController: {fileID: 2111742020}
   audioController: {fileID: 557720313}
   narratorController: {fileID: 818628775}
   canvasController: {fileID: 836691101}

@@ -32,8 +32,7 @@ public class Scene1Controller : MonoBehaviour
         
         if(levelCounter == 0 && AplicationModel.Scene1Misses[0] == 0) {
             timeEnded = DateTime.Now;
-            AplicationModel.PlayerResponseTime[0] =
-                (timeEnded - timeStarted).TotalSeconds - introAudioLength;
+            AplicationModel.PlayerResponseTime[0] = (timeEnded - timeStarted).TotalSeconds - introAudioLength;
         }  
     }
 
@@ -138,8 +137,7 @@ public class Scene1Controller : MonoBehaviour
 
     private void instantiateDifficulty()
     {
-        GameObject difficultyObj =
-            difficultiesObj.transform.GetChild(levelCounter).gameObject;
+        GameObject difficultyObj = difficultiesObj.transform.GetChild(levelCounter).gameObject;
         difficultyObj.SetActive(true);
         this.difficultyObj = GameObject.Instantiate(difficultyObj);
         difficultyObj.SetActive(false);

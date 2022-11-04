@@ -51,7 +51,7 @@ public class RegisterController : MonoBehaviour
 
     private List<object> PrepareRegister(string name)
     {
-        List<object> data = new List<object>{name, 0, 0, 0};
+        List<object> data = new List<object>{name, 0, 0, 0, 0, 0, 0, 0};
         return data;
     }
 

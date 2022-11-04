@@ -91,10 +91,10 @@ public class Scene7Controller : MonoBehaviour
             playANarratorAudio("playCorrectAudio", null, 2f);
             playANarratorAudio("playSceneCompletedAudio", "loadScene8", 2f, Tcontroller.SCENE_LOADER, 4f);
 
-            if(!Player.Instance.ScenesCompleted[1]) {
-                sendDataToReport();
+            if(!Player.Instance.ScenesCompleted[4]) {
+                //sendDataToReport();
                 new Thread(sheetsController.SavePlayerProgress).Start();
-                Player.Instance.ScenesCompleted[1] = true;
+                Player.Instance.ScenesCompleted[4] = true;
             }
         };
 

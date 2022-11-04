@@ -53,7 +53,7 @@ public class Scene8Controller : MonoBehaviour
 
         if(toTarget) {
             //move o vento em direção ao alvo
-            wind.transform.position = Vector3.MoveTowards(wind.transform.position, target.position, 4 * Time.deltaTime);
+            wind.transform.position = Vector3.MoveTowards(wind.transform.position, target.position, 5 * Time.deltaTime);
         }
 
         //Quando o vento passa pela rocha, troca o sprite dela
@@ -65,7 +65,7 @@ public class Scene8Controller : MonoBehaviour
 
         if(toHotZone) {
             //move o vento em direção a zona quente            
-            wind.transform.position = Vector3.MoveTowards(wind.transform.position, hotZoneSlot.position, 4 * Time.deltaTime);
+            wind.transform.position = Vector3.MoveTowards(wind.transform.position, hotZoneSlot.position, 5 * Time.deltaTime);
         }
     }
 

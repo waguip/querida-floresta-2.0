@@ -80,7 +80,7 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(15);
     }
-    public void loadQuiz()
+    public void loadQuiz2()
     {
         SceneManager.LoadScene(16);
     }

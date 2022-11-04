@@ -68,12 +68,12 @@ public class Scene5Controller : MonoBehaviour
         playANarratorAudio(audioToInvoke, "changeToTryAgainInterface", audioLength);
     }
 
-    private void sendDataToReport()
-    {
-        ReportCreator.writeLine("\nAtividade 2");
-        ReportCreator.writeLine($"Quantidade de erros da fase: {AplicationModel.Scene2Misses}");
-        ReportCreator.writeResponseTime(AplicationModel.PlayerResponseTime[1]);
-    }
+    // private void sendDataToReport()
+    // {
+    //     ReportCreator.writeLine("\nAtividade 5");
+    //     ReportCreator.writeLine($"Quantidade de erros da fase: {AplicationModel.Scene2Misses}");
+    //     ReportCreator.writeResponseTime(AplicationModel.PlayerResponseTime[1]);
+    // }
 
     void Start()
     {
@@ -97,11 +97,10 @@ public class Scene5Controller : MonoBehaviour
             playANarratorAudio("playTreesSelectedAudio", null, 8.74f);
             playANarratorAudio("playSceneCompletedAudio", "loadScene6", 2f, Tcontroller.SCENE_LOADER, 10.74f);
 
-
-            if(!Player.Instance.ScenesCompleted[1]) {
-                sendDataToReport();
+            if(!Player.Instance.ScenesCompleted[3]) {
+                //sendDataToReport();
                 new Thread(sheetsController.SavePlayerProgress).Start();
-                Player.Instance.ScenesCompleted[1] = true;
+                Player.Instance.ScenesCompleted[3] = true;
             }
         };
 

@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 public class GoogleSheetsController : MonoBehaviour
 {
-    const string FINAL_COL = "E";
+    const string FINAL_COL = "I";
     static SheetsService service;
 
     public void StartSheets()

@@ -52,7 +52,7 @@ public class WebCamController : MonoBehaviour
                         StopCam();
                         StartCoroutine(AcessEffect());
                         audioController.hitSound();
-                        qrCodeTxt.text = $"BEM VINDO {Player.Instance.Name}!!";
+                        qrCodeTxt.text = $"BEM VINDO, {Player.Instance.Name}!!";
                     }
                 }
             }
