@@ -33,7 +33,7 @@ public class PlayersForestController : MonoBehaviour
             functionToInvoke = null;
 
             if(Player.Instance.ScenesCompleted[2])
-                functionToInvoke = "loadScene4";
+                functionToInvoke = "loadCacoIntro";
             else if(Player.Instance.ScenesCompleted[1])
                 functionToInvoke = "loadScene3";
             else if(Player.Instance.ScenesCompleted[0])

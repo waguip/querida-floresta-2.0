@@ -7,7 +7,13 @@ using UnityEngine.UI;
 public class Scene8CanvasController : MonoBehaviour
 {
     [SerializeField] private Button tryAgainButton;
-    [SerializeField] private GameObject toucanObj, quitBtnObj, backgroundCoverObj;
+    [SerializeField] private GameObject toucanObj, quitBtnObj, backgroundCoverObj, rock;
+    [SerializeField] private Sprite rockAfter;
+    [SerializeField] private Animator animator;
+    
+    private void Awake() {
+        animator = GetComponent<Animator>();
+    }
 
     public void tryAgain()
     {        
@@ -30,5 +36,13 @@ public class Scene8CanvasController : MonoBehaviour
     public void showBackgroundCover()
     {
         backgroundCoverObj.SetActive(true);
+    }
+
+    public void changeRock() {
+        rock.GetComponent<Image>().sprite = rockAfter;
+    }
+
+    public void erosionAnimation() {
+        animator.SetTrigger("Erode");
     }
 }

@@ -10,7 +10,7 @@
     }
 
     public static bool isForestInTemporaryMode = true, lessClouds;
-    public static bool isFirstTimeScene1 = true, isFirstTimeScene2 = true, isFirstTimeScene4 = true, isFirstTimeScene9 = true;
+    public static bool isFirstTimeScene1 = true, isFirstTimeScene2 = true, isFirstTimeScene4 = true,  isFirstTimeScene7 = true, isFirstTimeScene8 = true, isFirstTimeScene9 = true, isFirstTimeSceneConnect = true;
 
     // Report data
     public static byte[] SceneAcesses { get; } = new byte[3];

@@ -2,7 +2,7 @@
 
 public class Scene7NarratorController : NarratorController
 {
-    [SerializeField] private AudioSource introductionAudio, correctAudio, missAudio, sceneCompletedAudio, helpAudio;
+    [SerializeField] private AudioSource introductionAudio, correctAudio, missAudio;
     [SerializeField] private AudioController audioController;
 
     /* All invoked by Scene2Controller */
@@ -17,16 +17,5 @@ public class Scene7NarratorController : NarratorController
 
     public void playMissAudio() {
         playAudio(missAudio);
-    }
-
-    public void playSceneCompletedAudio()
-    {
-        audioController.sceneCompletedSound();
-        playAudio(sceneCompletedAudio);
-    }
-
-    public void playHelpAudio()
-    {
-        playAudio(helpAudio);
     }
 }

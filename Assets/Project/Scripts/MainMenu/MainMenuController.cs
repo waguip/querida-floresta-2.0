@@ -4,26 +4,16 @@ using UnityEngine.UI;
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private SceneLoader sceneLoader;
-    [SerializeField] private Button startButton, speechButton, statisticsButton;
-    [SerializeField] private GameObject buttonsObj, noConnectionObj, webCamObj;
+    [SerializeField] private Button startButton, speechButton, speechButton2, statisticsButton;
+    [SerializeField] private GameObject buttonsObj, toco, caco;
     [SerializeField] private NarratorMMController narratorController;
     [SerializeField] private GoogleSheetsController sheetsController;
     private AudioClip speechClip;
-
-    private void NewGameStarted()
-    {
-        if (AplicationModel.isFirstTimeScene1) {
-            HideButtonsPlaySpeech();
-            sceneLoader.Invoke("loadScene1", speechClip.length + 1);
-            AplicationModel.isFirstTimeScene1 = false;
-        }
-        else sceneLoader.loadScene1();
-    }
+    private float clipLength;    
 
     void Start() // Start is called before the first frame update
     {
-        speechClip = narratorController.SpeechAudio.clip;
-        speechButton.gameObject.SetActive(!AplicationModel.isFirstTimeScene1);
+        speechClip = narratorController.SpeechAudio.clip; 
         statisticsButton.interactable = Player.Instance.ScenesCompleted[0];
 
         if(!Player.Instance.ScenesCompleted[0]) {
@@ -35,16 +25,37 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
+    private void NewGameStarted()
+    {
+        if (AplicationModel.isFirstTimeScene1) {
+            HideButtonsPlaySpeech(false);
+            sceneLoader.Invoke("loadScene1", speechClip.length + 1);
+            AplicationModel.isFirstTimeScene1 = false;
+        }
+        else sceneLoader.loadScene1();
+    }
+
     private void ShowButtons() // Invoked by hideButtonsPlaySpeech()
     {
         buttonsObj.SetActive(true);
+        toco.SetActive(true);
+        caco.SetActive(true);
     }
 
-    public void HideButtonsPlaySpeech() // Called by button (BtSpeech)
+    public void HideButtonsPlaySpeech(bool isCaco) // Called by button (BtSpeech)
     {
+    
         buttonsObj.SetActive(false);
-        narratorController.playSpeechAudio();
-        Invoke("ShowButtons", speechClip.length + 1);
+
+        if(isCaco){
+            clipLength = narratorController.playSpeechAudioCaco();
+            toco.SetActive(false);
+        } else {
+            clipLength = narratorController.playSpeechAudio();
+            caco.SetActive(false);
+        }
+
+        Invoke("ShowButtons", clipLength + 1);        
     }
 
     public void QuitButtonAction()

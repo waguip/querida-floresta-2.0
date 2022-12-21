@@ -1363,6 +1363,7 @@ GameObject:
   - component: {fileID: 861103384}
   - component: {fileID: 861103386}
   - component: {fileID: 861103385}
+  - component: {fileID: 861103387}
   m_Layer: 0
   m_Name: mico vetor 2
   m_TagString: Untagged
@@ -1426,6 +1427,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861103383}
   m_CullTransparentMesh: 0
+--- !u!95 &861103387
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861103383}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f27a4fd01f3e4934f81067bad1e42d9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &863630659
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,8 +16,10 @@ public class Quiz2Controller : MonoBehaviour
         narratorController.playIntroductionAudio();
     }
 
-    public void rightAnswer()
+    //Chamado pelo botão correto
+    public void rightAnswer(Button button)
     {
+        canvasController.setAnswerEffect(button, true);
         audioController.hitSound();
         narratorController.playRightAnswerAudio();
         index++;
@@ -31,8 +33,10 @@ public class Quiz2Controller : MonoBehaviour
         }
     }
 
-    public void wrongAnswer()
+    //Chamado pelo botão incorreto
+    public void wrongAnswer(Button button)
     {        
+        canvasController.setAnswerEffect(button, false);
         audioController.missSound();
         narratorController.playWrongAnswerAudio();
         AplicationModel.Scene3Misses[index]++;

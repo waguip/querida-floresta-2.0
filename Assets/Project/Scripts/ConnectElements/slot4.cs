@@ -12,13 +12,19 @@ public class slot4 : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        var colors = GetComponent<Button>().colors;        
+
         if (eventData.pointerDrag == correctItem) {
             correctItem.GetComponent<DragAndDrop3>().correct = true;            
-            controller.correct += 1;
-            audioController.hitSound();
-            GetComponent<Button>().interactable = false;
+            controller.correct += 1;            
+            audioController.hitSound();            
+            colors.disabledColor = new Color32(80,255,80,180);                                    
         } else {
             controller.correct = -1;
+            colors.disabledColor = new Color32(255,80,80,180);            
         }
+
+        GetComponent<Button>().interactable = false;
+        GetComponent<Button>().colors = colors;
     }
 }

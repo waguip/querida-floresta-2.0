@@ -43,14 +43,13 @@ public class Scene9Controller : MonoBehaviour
         //Quado acumula 2 acertos no "Slot"
         if (correct >= 3) {                    
             win();            
-            correct = 0;
-            //Animação do vento
+            correct = 0;            
         }
-
         
     }
 
     private void win() {        
+        canvasController.windPreventionAnimation();
         audioController.sceneCompletedSound();        
         narratorController.Invoke("playCongratsAudio", 3f);
         audioLength = narratorController.congratsAudioLength() + 5f;
@@ -61,6 +60,6 @@ public class Scene9Controller : MonoBehaviour
             Player.Instance.ScenesCompleted[5] = true;
         }
 
-        sceneLoader.Invoke("loadQuiz", audioLength);
+        sceneLoader.Invoke("loadQuiz2", audioLength);
     }
 }

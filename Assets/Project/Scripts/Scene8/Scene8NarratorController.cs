@@ -2,27 +2,17 @@ using UnityEngine;
 
 public class Scene8NarratorController : NarratorController
 {
-    [SerializeField] private AudioSource introductionAudio, missClickAudio, rightClickAudio, helpAudio, congratsAudio;
+    [SerializeField] private AudioSource introductionAudio, missClickAudio, congratsAudio;
     
     public float playIntroductionAudio()
     {
         playAudio(introductionAudio);
         return introductionAudio.clip.length;
     }
-    
-    public void playRightClickAudio()
-    {
-        playAudio(rightClickAudio);
-    }
 
     public void playMissClickAudio()
     {
         playAudio(missClickAudio);
-    }
-
-    public void playHelpAudio()
-    {
-        playAudio(helpAudio);
     }
 
     public void playCongratsAudio()

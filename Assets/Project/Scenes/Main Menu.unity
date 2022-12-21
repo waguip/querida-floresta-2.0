@@ -446,7 +446,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1062125411}
   m_Father: {fileID: 1128347908}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -742,7 +743,7 @@ RectTransform:
   m_Children:
   - {fileID: 966411716}
   m_Father: {fileID: 1128347908}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22700001, y: 0.80100006}
   m_AnchorMax: {x: 0.79228634, y: 1}
@@ -1027,10 +1028,11 @@ MonoBehaviour:
   sceneLoader: {fileID: 845659771}
   startButton: {fileID: 1872868743}
   speechButton: {fileID: 888001189}
+  speechButton2: {fileID: 1909185157}
   statisticsButton: {fileID: 1568376072}
   buttonsObj: {fileID: 1620498724}
-  noConnectionObj: {fileID: 0}
-  webCamObj: {fileID: 0}
+  toco: {fileID: 1062125410}
+  caco: {fileID: 1469576509}
   narratorController: {fileID: 938256322}
   sheetsController: {fileID: 845659773}
 --- !u!114 &845659773
@@ -1129,7 +1131,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 845659772}
         m_MethodName: HideButtonsPlaySpeech
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1282,15 +1284,15 @@ RectTransform:
   m_GameObject: {fileID: 938256317}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1.00015, y: 1.00015, z: 1.00015}
+  m_LocalScale: {x: -1.00015, y: 1.00015, z: 1}
   m_Children: []
-  m_Father: {fileID: 1128347908}
-  m_RootOrder: 2
+  m_Father: {fileID: 1062125411}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.254}
-  m_AnchorMax: {x: 0.223, y: 0.54800004}
-  m_AnchoredPosition: {x: 0.11004639, y: 0.19999695}
-  m_SizeDelta: {x: 0.2206726, y: -0.28118896}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -7.329834, y: 6.1306305}
+  m_SizeDelta: {x: -14.732178, y: -12.261261}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &938256319
 Animator:
@@ -1332,7 +1334,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 1c283d126bce5eb4b8636bf72aa418a9, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1361,6 +1363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechAudio: {fileID: 1580145787}
+  cacoIntro: {fileID: 1451103488}
 --- !u!1 &966411715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,6 +1508,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1062125410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1062125411}
+  m_Layer: 5
+  m_Name: Toucan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1062125411
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062125410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1326878196}
+  - {fileID: 938256318}
+  m_Father: {fileID: 212380000}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.23231101}
+  m_AnchorMax: {x: 0.23946503, y: 0.5497417}
+  m_AnchoredPosition: {x: 0.2699585, y: -0.9880066}
+  m_SizeDelta: {x: -1.3493042, y: -1.1088867}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1128347904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,8 +1636,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 212380000}
-  - {fileID: 1326878196}
-  - {fileID: 938256318}
   - {fileID: 1469576510}
   - {fileID: 573401073}
   - {fileID: 1620498725}
@@ -1636,15 +1674,15 @@ RectTransform:
   m_GameObject: {fileID: 1326878195}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1.00015, y: 1.00015, z: 1.00015}
+  m_LocalScale: {x: -1.00015, y: 1.00015, z: 1}
   m_Children: []
-  m_Father: {fileID: 1128347908}
-  m_RootOrder: 1
+  m_Father: {fileID: 1062125411}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.23110954}
-  m_AnchorMax: {x: 0.23900001, y: 0.319}
-  m_AnchoredPosition: {x: 0.029968262, y: 0.14004517}
-  m_SizeDelta: {x: 0.059570312, y: 0.15583801}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.27548316}
+  m_AnchoredPosition: {x: -0.38650513, y: -0.11323547}
+  m_SizeDelta: {x: 0.11604309, y: -0.0115356445}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1326878197
 MonoBehaviour:
@@ -1667,7 +1705,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ccc46cd1f73348246a406a8b9731d6c6, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1683,6 +1721,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326878195}
   m_CullTransparentMesh: 0
+--- !u!1 &1451103486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1451103487}
+  - component: {fileID: 1451103488}
+  m_Layer: 0
+  m_Name: CacoIntroduction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1451103487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451103486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1828544110}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1451103488
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451103486}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: e0da8d4bfd4404349883fbe26dec2d53,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 2ffa35a9646351347873bfeefed6a3a2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1469576509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1860,7 @@ GameObject:
   - component: {fileID: 1469576510}
   - component: {fileID: 1469576512}
   - component: {fileID: 1469576511}
+  - component: {fileID: 1469576513}
   m_Layer: 0
   m_Name: mico vetor 2
   m_TagString: Untagged
@@ -1713,7 +1880,7 @@ RectTransform:
   m_LocalScale: {x: -1.000065, y: 1.000065, z: 1.000065}
   m_Children: []
   m_Father: {fileID: 1128347908}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.83100003, y: 0.0886555}
   m_AnchorMax: {x: 1, y: 0.62074167}
@@ -1757,6 +1924,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469576509}
   m_CullTransparentMesh: 0
+--- !u!95 &1469576513
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469576509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f27a4fd01f3e4934f81067bad1e42d9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1504293316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,7 +2324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.199997, y: 0}
+  m_AnchoredPosition: {x: -4.1999817, y: 0}
   m_SizeDelta: {x: -45.79448, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596251687
@@ -2216,7 +2402,7 @@ RectTransform:
   - {fileID: 888001188}
   - {fileID: 1909185156}
   m_Father: {fileID: 1128347908}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2253,6 +2439,7 @@ Transform:
   m_Children:
   - {fileID: 762169989}
   - {fileID: 1580145786}
+  - {fileID: 1451103487}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2486,14 +2673,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 845659772}
         m_MethodName: HideButtonsPlaySpeech
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1909185158
 MonoBehaviour:

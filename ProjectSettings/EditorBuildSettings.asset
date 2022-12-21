@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/Ligar.unity
     guid: 9940c92aeb59bc448b81f2a6762ea0d8
+  - enabled: 1
+    path: Assets/Project/Scenes/CacoIntro.unity
+    guid: 4524f23273d22c349a3bc21750370973
   m_configObjects: {}

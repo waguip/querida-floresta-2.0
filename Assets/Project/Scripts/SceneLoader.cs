@@ -88,6 +88,11 @@ public class SceneLoader : MonoBehaviour
     public void loadConnectFigures() {
         SceneManager.LoadScene(17);
     }
+
+    public void loadCacoIntro()
+    {
+        SceneManager.LoadScene(18);
+    }    
     
     public void quitGame()
     {

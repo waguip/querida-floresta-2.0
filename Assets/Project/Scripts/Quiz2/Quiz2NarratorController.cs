@@ -3,7 +3,7 @@
 public class Quiz2NarratorController : NarratorController
 {
     [SerializeField] private Quiz2CanvasController canvasController;
-    [SerializeField] private AudioSource introductionAudio, question1Audio, question2Audio, question3Audio, rightAnswerAudio, wrongAnswerAudio,
+    [SerializeField] private AudioSource introductionAudio, question1Audio, question2Audio, rightAnswerAudio, wrongAnswerAudio,
     sceneCompletedAudio;
 
     public AudioSource SceneCompletedAudio
@@ -29,11 +29,6 @@ public class Quiz2NarratorController : NarratorController
     public void playQuestion2Audio()
     {
         playNarratorAudio(question2Audio);
-    }
-
-    public void playQuestion3Audio()
-    {
-        playNarratorAudio(question3Audio);
     }
 
     public float playIntroductionAudio()

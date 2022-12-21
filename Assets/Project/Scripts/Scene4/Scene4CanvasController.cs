@@ -8,6 +8,7 @@ public class Scene4CanvasController : MonoBehaviour
 {
     [SerializeField] private Button tryAgainButton;
     [SerializeField] private GameObject toucanObj, quitBtnObj, backgroundCoverObj;
+    [SerializeField] private Animator landslideAnim;
 
     public void tryAgain()
     {        
@@ -20,6 +21,10 @@ public class Scene4CanvasController : MonoBehaviour
         backgroundCoverObj.GetComponent<Image>().color = new Vector4(0f, 0f, 0f, 0.5f);
         showBackgroundCover();
         tryAgainButton.gameObject.SetActive(true);        
+    }
+
+    public void landslide() {
+        landslideAnim.SetBool("Win", true);
     }
 
     public void hideBackgroundCover()

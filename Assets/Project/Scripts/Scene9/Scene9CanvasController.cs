@@ -8,6 +8,11 @@ public class Scene9CanvasController : MonoBehaviour
 {
     [SerializeField] private Button tryAgainButton;
     [SerializeField] private GameObject toucanObj, quitBtnObj, backgroundCoverObj;
+    [SerializeField] private Animator animator;
+
+    private void Start() {
+        animator = GetComponent<Animator>();
+    }
 
     public void tryAgain()
     {        
@@ -21,7 +26,7 @@ public class Scene9CanvasController : MonoBehaviour
         backgroundCoverObj.GetComponent<Image>().color = new Vector4(0f, 0f, 0f, 0.5f);
         showBackgroundCover();
         tryAgainButton.GetComponent<RectTransform>().SetAsLastSibling();
-        tryAgainButton.gameObject.SetActive(true);        
+        tryAgainButton.gameObject.SetActive(true);
     }
 
     public void hideBackgroundCover()
@@ -32,5 +37,9 @@ public class Scene9CanvasController : MonoBehaviour
     public void showBackgroundCover()
     {
         backgroundCoverObj.SetActive(true);
+    }
+
+    public void windPreventionAnimation() {
+        animator.SetTrigger("wind");
     }
 }

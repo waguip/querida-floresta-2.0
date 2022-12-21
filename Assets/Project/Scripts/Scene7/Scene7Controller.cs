@@ -7,34 +7,21 @@ using System.Threading;
 
 public class Scene7Controller : MonoBehaviour
 {
-    [SerializeField] private Button cowButton, garbageButton, treesButton;
-    [SerializeField] private GameObject rainPrefab, cowObject, garbageObject, treesObject, correctPlace;
+    private Button wrong1Button, wrong2Button, correctButton;
+    [SerializeField] private GameObject wrong1Object, wrong2Object, correctObject, correctPlace;
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private GoogleSheetsController sheetsController;
     [SerializeField] private Scene7CanvasController canvasController;
     [SerializeField] private Scene7NarratorController narratorController;
-    private static float introAudioLength = 1f;
+    private static float introAudioLength = 12f;
     private DateTime timeStarted;
     private RainScript2D rainScript;
     private enum Tcontroller { CANVAS, SELF, SCENE_LOADER }
 
-    public void setFirstTimeInScene()
-    {
-        AplicationModel.isFirstTimeScene2 = true;
-    }
-
-    public void showHelp()
-    {
-        playANarratorAudio("playHelpAudio", "leaveHelpInterface", 9f);
-        canvasController.changeToHelpInterface();
-    }
-
-    private void startRaining()
-    {
-        rainScript = (Instantiate(rainPrefab)).GetComponent<RainScript2D>();
-        rainScript.RainHeightMultiplier = 0f;
-        rainScript.RainWidthMultiplier = 1.12f;
-        Destroy(rainScript.gameObject, 8f);
+    private void Awake() {
+        wrong1Button = wrong1Object.GetComponent<Button>();
+        wrong2Button = wrong2Object.GetComponent<Button>();
+        correctButton = correctObject.GetComponent<Button>();
     }
 
     private void playANarratorAudio( string functionToInvoke, string sceneFunction, float length, Tcontroller controller = Tcontroller.CANVAS, float awaitTime = 0f )
@@ -64,7 +51,7 @@ public class Scene7Controller : MonoBehaviour
 
     private void sendDataToReport()
     {
-        ReportCreator.writeLine("\nAtividade 2");
+        ReportCreator.writeLine("\nAtividade 7");
         ReportCreator.writeLine($"Quantidade de erros da fase: {AplicationModel.Scene2Misses}");
         ReportCreator.writeResponseTime(AplicationModel.PlayerResponseTime[1]);
     }
@@ -74,9 +61,9 @@ public class Scene7Controller : MonoBehaviour
         timeStarted = DateTime.Now;
         AplicationModel.SceneAcesses[1]++;
 
-        if(AplicationModel.isFirstTimeScene2) {
+        if(AplicationModel.isFirstTimeScene7) {
 
-            AplicationModel.isFirstTimeScene2 = false;
+            AplicationModel.isFirstTimeScene7 = false;
             canvasController.showBackgroundCover();
             playANarratorAudio("playIntroductionAudio", "hideBackgroundCover", introAudioLength);
 
@@ -84,12 +71,10 @@ public class Scene7Controller : MonoBehaviour
             introAudioLength = 0f;
         }              
 
-        //Define a ação "treesClicked"
-        Action treesClicked = () => {
-            setFirstTimeInScene();
+        //Define a ação "correctClicked"
+        Action correctClicked = () => {   
 
-            playANarratorAudio("playCorrectAudio", null, 2f);
-            playANarratorAudio("playSceneCompletedAudio", "loadScene8", 2f, Tcontroller.SCENE_LOADER, 4f);
+            playANarratorAudio("playCorrectAudio", "loadScene8", 6.5f, Tcontroller.SCENE_LOADER);            
 
             if(!Player.Instance.ScenesCompleted[4]) {
                 //sendDataToReport();
@@ -100,7 +85,7 @@ public class Scene7Controller : MonoBehaviour
 
         //Define a ação "buttonClicked"
         Action<GameObject> buttonClicked = (gameObject) => {
-            Button[] buttons = {cowButton, treesButton, garbageButton};
+            Button[] buttons = {correctButton, wrong2Button};
 
             if(!Player.Instance.ScenesCompleted[1] && AplicationModel.PlayerResponseTime[1] == 0.00000f ) {
                 AplicationModel.PlayerResponseTime[1] = (DateTime.Now - timeStarted).Seconds - introAudioLength;
@@ -115,20 +100,20 @@ public class Scene7Controller : MonoBehaviour
         };
 
 
-        //Adiciona os listeners dos botões
-        cowButton.onClick.AddListener(() => {
-            buttonClicked(cowObject);
+        //Adiciona os listeners dos botões    
+        wrong1Button.onClick.AddListener(() => {
+            buttonClicked(wrong1Object);
             sceneMiss("playMissAudio", 2f);
         });
 
-        garbageButton.onClick.AddListener(() => {
-            buttonClicked(garbageObject);
+        wrong2Button.onClick.AddListener(() => {
+            buttonClicked(wrong2Object);
             sceneMiss("playMissAudio", 2f);
         });
 
-        treesButton.onClick.AddListener(() => {
-            buttonClicked(treesObject);
-            treesClicked();
+        correctButton.onClick.AddListener(() => {
+            buttonClicked(correctObject);
+            correctClicked();
         });
     }
 }

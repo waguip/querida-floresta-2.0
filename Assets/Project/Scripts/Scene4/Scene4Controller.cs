@@ -50,7 +50,8 @@ public class Scene4Controller : MonoBehaviour
     private void win() {
         audioController.sceneCompletedSound();
         Invoke("startRaining", 1f);
-        narratorController.Invoke("playCongratsAudio", 3f);
+        narratorController.Invoke("playCongratsAudio", 3f); 
+        canvasController.Invoke("landslide", 4f);
         audioLength = narratorController.congratsAudioLength() + 5f;
         sceneLoader.Invoke("loadScene5", audioLength);
     }

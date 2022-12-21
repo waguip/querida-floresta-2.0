@@ -1217,6 +1217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechAudio: {fileID: 0}
+  cacoIntro: {fileID: 0}
 --- !u!1 &966411715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,6 +1805,7 @@ GameObject:
   - component: {fileID: 1418492799}
   - component: {fileID: 1418492801}
   - component: {fileID: 1418492800}
+  - component: {fileID: 1418492802}
   m_Layer: 0
   m_Name: mico vetor 2
   m_TagString: Untagged
@@ -1867,6 +1869,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418492798}
   m_CullTransparentMesh: 0
+--- !u!95 &1418492802
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418492798}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f27a4fd01f3e4934f81067bad1e42d9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1568376070
 GameObject:
   m_ObjectHideFlags: 0

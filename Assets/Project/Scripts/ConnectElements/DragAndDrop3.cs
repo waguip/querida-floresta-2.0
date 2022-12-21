@@ -13,7 +13,6 @@ public class DragAndDrop3 : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private LineRenderer line;
     [SerializeField] private Canvas canvas;
     public bool correct;
-
     private Vector2 originalPosition;
 
     private void Awake() 

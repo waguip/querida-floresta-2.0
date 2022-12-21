@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,20 +13,20 @@ public class ConnectController : MonoBehaviour
     float audioLength;
 
     [SerializeField] private AudioController audioController;
-    [SerializeField] private Scene4NarratorController narratorController;
-    [SerializeField] private Scene4CanvasController canvasController;
+    [SerializeField] private ConnectNarratorController narratorController;
+    [SerializeField] private ConnectCanvasController canvasController;
     [SerializeField] private GoogleSheetsController sheetsController;
     [SerializeField] private SceneLoader sceneLoader;
 
     void Start() {
-        if(AplicationModel.isFirstTimeScene4) {
-            AplicationModel.isFirstTimeScene4 = false;
+        if(AplicationModel.isFirstTimeSceneConnect) {
+            AplicationModel.isFirstTimeSceneConnect = false;
             
             //"Cobre" a tela para impedir clicks
-            //canvasController.showBackgroundCover();
+            canvasController.showBackgroundCover();
             //Retira o cover após o audio tocar
-            //audioLength = narratorController.playIntroductionAudio();
-            //canvasController.Invoke("hideBackgroundCover", audioLength);
+            audioLength = narratorController.playIntroductionAudio();
+            canvasController.Invoke("hideBackgroundCover", audioLength);
         }
     }
 
@@ -49,13 +49,15 @@ public class ConnectController : MonoBehaviour
 
     private void win() {
         audioController.sceneCompletedSound();
-        //narratorController.Invoke("playCongratsAudio", 3f);
-        //audioLength = narratorController.congratsAudioLength() + 5f;
+        narratorController.Invoke("playCongratsAudio", 3f);
+        audioLength = narratorController.congratsAudioLength() + 5f;
+
         if(!Player.Instance.ScenesCompleted[6]) {
             //sendDataToReport();
             new Thread(sheetsController.SavePlayerProgress).Start();
             Player.Instance.ScenesCompleted[6] = true;
         }
+
         sceneLoader.Invoke("loadMainMenu", audioLength);
     }
 }

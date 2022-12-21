@@ -7,7 +7,7 @@ public class Scene5NarratorController : NarratorController
     aboutEvaporationAudio, aboutRainAudio, sceneCompletedAudio, helpAudio;
     [SerializeField] private AudioController audioController;
 
-    /* All invoked by Scene2Controller */
+    /* All invoked by Scene5Controller */
     public void playIntroductionAudio()
     {
         playAudio(introductionAudio);
@@ -25,7 +25,7 @@ public class Scene5NarratorController : NarratorController
 
     public void playTreesSelectedAudio()
     {
-        playAudio(treesSelectedAudio);
+        playAudio(treesSelectedAudio);        
     }
 
     public void playAboutRootsAudio()

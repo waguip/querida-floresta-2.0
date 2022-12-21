@@ -11,10 +11,9 @@ public class Scene5Controller : MonoBehaviour
     [SerializeField] private GameObject rainPrefab, cowObject, garbageObject, treesObject;
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private GoogleSheetsController sheetsController;
-    [SerializeField] private SpritesS5Controller spritesController;
     [SerializeField] private Scene5CanvasController canvasController;
     [SerializeField] private Scene5NarratorController narratorController;
-    private static float introAudioLength = 1f;
+    private static float introAudioLength = 6.2f;
     private DateTime timeStarted;
     private RainScript2D rainScript;
     private enum Tcontroller { CANVAS, SPRITE, SELF, SCENE_LOADER }
@@ -44,7 +43,7 @@ public class Scene5Controller : MonoBehaviour
         Tcontroller controller = Tcontroller.CANVAS, float awaitTime = 0f
     )
     {
-        narratorController.Invoke(functionToInvoke, awaitTime + 1f);
+        narratorController.Invoke(functionToInvoke, awaitTime);
         if(sceneFunction != null)
         {
             length += awaitTime;
@@ -52,8 +51,6 @@ public class Scene5Controller : MonoBehaviour
             {
                 case Tcontroller.CANVAS:
                     canvasController.Invoke(sceneFunction, length); break;
-                case Tcontroller.SPRITE:
-                    spritesController.Invoke(sceneFunction, length); break;
                 case Tcontroller.SCENE_LOADER:
                     sceneLoader.Invoke(sceneFunction, length); break;
                 
@@ -94,8 +91,8 @@ public class Scene5Controller : MonoBehaviour
         Action treesClicked = () => {
             setFirstTimeInScene();
 
-            playANarratorAudio("playTreesSelectedAudio", null, 8.74f);
-            playANarratorAudio("playSceneCompletedAudio", "loadScene6", 2f, Tcontroller.SCENE_LOADER, 10.74f);
+            playANarratorAudio("playTreesSelectedAudio", null, 12.4f);
+            playANarratorAudio("playSceneCompletedAudio", "loadScene6", 2f, Tcontroller.SCENE_LOADER, 12.6f);
 
             if(!Player.Instance.ScenesCompleted[3]) {
                 //sendDataToReport();
