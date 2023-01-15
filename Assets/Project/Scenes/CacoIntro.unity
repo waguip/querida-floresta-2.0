@@ -262,7 +262,6 @@ GameObject:
   - component: {fileID: 434626006}
   - component: {fileID: 434626005}
   - component: {fileID: 434626003}
-  - component: {fileID: 434626004}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -323,18 +322,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c311ece858f9b745b0c1dba20adc711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &434626004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434626001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3840513a1d98f744087848b66caff7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &434626005
@@ -525,7 +512,7 @@ RectTransform:
   m_Children:
   - {fileID: 669766867}
   m_Father: {fileID: 1950058885}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22700001, y: 0.80100006}
   m_AnchorMax: {x: 0.79228634, y: 1}
@@ -603,7 +590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.046644107, y: 0}
   m_AnchorMax: {x: 0.9786544, y: 0.79300004}
-  m_AnchoredPosition: {x: -0.5, y: 0.27000427}
+  m_AnchoredPosition: {x: -0.5000305, y: 0.27000427}
   m_SizeDelta: {x: -1.8260193, y: 0.5464325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &669766868
@@ -637,8 +624,10 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: QUERIDA FLORESTA 2
+    m_LineSpacing: 0.55
+  m_Text: 'QUERIDA FLORESTA
+
+    PARTE 2'
 --- !u!222 &669766869
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -757,7 +746,7 @@ RectTransform:
   m_Children:
   - {fileID: 1094970693}
   m_Father: {fileID: 1950058885}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.35714287, y: 0.41183743}
   m_AnchorMax: {x: 0.6554286, y: 0.588}
@@ -1007,7 +996,7 @@ GameObject:
   - component: {fileID: 1778327874}
   - component: {fileID: 1778327876}
   m_Layer: 0
-  m_Name: mico vetor 2
+  m_Name: Caco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1022,15 +1011,15 @@ RectTransform:
   m_GameObject: {fileID: 1778327872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.7876912, y: 0.7876912, z: 0.7876912}
+  m_LocalScale: {x: -0.7325528, y: 0.7325528, z: 0.7325528}
   m_Children: []
   m_Father: {fileID: 1950058885}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8253822, y: 0.16339713}
   m_AnchorMax: {x: 1, y: 0.7301723}
-  m_AnchoredPosition: {x: 1, y: -0.19999695}
-  m_SizeDelta: {x: 49.30327, y: 77.55652}
+  m_AnchoredPosition: {x: -13, y: 0}
+  m_SizeDelta: {x: 35.031693, y: 55.351166}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1778327874
 MonoBehaviour:
@@ -1051,7 +1040,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 876cbbdd532c9754aaad0780d26f0d8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 86e4bc47c7202094fae33edb730018ca, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1136,7 +1125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1179,6 +1168,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 509163049}
+  - {fileID: 1974508926}
   - {fileID: 1778327873}
   - {fileID: 591388300}
   - {fileID: 1331688228}
@@ -1190,6 +1180,80 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1974508925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974508926}
+  - component: {fileID: 1974508929}
+  - component: {fileID: 1974508928}
+  m_Layer: 0
+  m_Name: Caco Tronco
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1974508926
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974508925}
+  m_LocalRotation: {x: -0, y: -0, z: 0.014332261, w: 0.9998973}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.77635944, y: 0.77635944, z: 0.77635944}
+  m_Children: []
+  m_Father: {fileID: 1950058885}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.6420001}
+  m_AnchorMin: {x: 0.79228634, y: 0.087000005}
+  m_AnchorMax: {x: 1, y: 0.80100006}
+  m_AnchoredPosition: {x: 2.6209717, y: 10.782715}
+  m_SizeDelta: {x: 41.674133, y: 26.50705}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1974508928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974508925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5ff8096273d6af947b8e1d76bd4358f7, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1974508929
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974508925}
+  m_CullTransparentMesh: 0
 --- !u!1 &2143309898
 GameObject:
   m_ObjectHideFlags: 0

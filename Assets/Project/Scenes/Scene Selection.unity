@@ -287,7 +287,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 265581474}
   m_OnClick:
     m_PersistentCalls:
@@ -461,7 +461,7 @@ RectTransform:
   m_Children:
   - {fileID: 315807719}
   m_Father: {fileID: 1128347908}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.81358486, y: 0.8904024}
   m_AnchorMax: {x: 0.9927545, y: 0.9847012}
@@ -885,9 +885,9 @@ MonoBehaviour:
   scene2Btn: {fileID: 1787947545}
   scene3Btn: {fileID: 265581473}
   scene4Btn: {fileID: 1027516269}
-  scene5Btn: {fileID: 1671889719}
-  scene6Btn: {fileID: 1157132923}
-  scene7Btn: {fileID: 2049748553}
+  scene6Btn: {fileID: 1671889719}
+  scene8Btn: {fileID: 1157132923}
+  scene10Btn: {fileID: 2049748553}
 --- !u!1 &966411715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1058,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1027516270}
   m_OnClick:
     m_PersistentCalls:
@@ -1286,8 +1286,8 @@ RectTransform:
   - {fileID: 1787947543}
   - {fileID: 1302556122}
   - {fileID: 265581471}
-  - {fileID: 408196470}
   - {fileID: 2049748551}
+  - {fileID: 408196470}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1310,7 +1310,7 @@ GameObject:
   - component: {fileID: 1157132923}
   - component: {fileID: 1157132922}
   m_Layer: 5
-  m_Name: BtnScene6
+  m_Name: BtnScene8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1388,7 +1388,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1157132924}
   m_OnClick:
     m_PersistentCalls:
@@ -1544,7 +1544,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1302556125}
   m_OnClick:
     m_PersistentCalls:
@@ -1622,7 +1622,7 @@ GameObject:
   - component: {fileID: 1671889719}
   - component: {fileID: 1671889718}
   m_Layer: 5
-  m_Name: BtnScene5
+  m_Name: BtnScene6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1700,7 +1700,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1671889720}
   m_OnClick:
     m_PersistentCalls:
@@ -1856,7 +1856,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1787947546}
   m_OnClick:
     m_PersistentCalls:
@@ -1982,7 +1982,7 @@ GameObject:
   - component: {fileID: 2049748553}
   - component: {fileID: 2049748552}
   m_Layer: 5
-  m_Name: BtnScene7
+  m_Name: BtnScene10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2000,7 +2000,7 @@ RectTransform:
   m_LocalScale: {x: 0.9013878, y: 0.9013878, z: 0.9013878}
   m_Children: []
   m_Father: {fileID: 1128347908}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3648783, y: 0.033351608}
   m_AnchorMax: {x: 0.628, y: 0.29455048}
@@ -2060,7 +2060,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2049748554}
   m_OnClick:
     m_PersistentCalls:

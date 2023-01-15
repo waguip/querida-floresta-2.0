@@ -45,7 +45,7 @@ public class Scene7Controller : MonoBehaviour
 
     public void sceneMiss(string audioToInvoke, float audioLength)
     {
-        AplicationModel.Scene2Misses++;
+        AplicationModel.Scene7Misses++;
         playANarratorAudio(audioToInvoke, "changeToTryAgainInterface", audioLength);
     }
 
@@ -58,8 +58,8 @@ public class Scene7Controller : MonoBehaviour
 
     void Start()
     {
-        timeStarted = DateTime.Now;
-        AplicationModel.SceneAcesses[1]++;
+        //timeStarted = DateTime.Now;
+        //AplicationModel.SceneAcesses[1]++;
 
         if(AplicationModel.isFirstTimeScene7) {
 
@@ -76,10 +76,11 @@ public class Scene7Controller : MonoBehaviour
 
             playANarratorAudio("playCorrectAudio", "loadScene8", 6.5f, Tcontroller.SCENE_LOADER);            
 
-            if(!Player.Instance.ScenesCompleted[4]) {
+            AplicationModel.isFirstTimeScene7 = true;
+            if(!Player.Instance.ScenesCompleted[6]) {
                 //sendDataToReport();
                 new Thread(sheetsController.SavePlayerProgress).Start();
-                Player.Instance.ScenesCompleted[4] = true;
+                Player.Instance.ScenesCompleted[6] = true;
             }
         };
 
@@ -87,9 +88,9 @@ public class Scene7Controller : MonoBehaviour
         Action<GameObject> buttonClicked = (gameObject) => {
             Button[] buttons = {correctButton, wrong2Button};
 
-            if(!Player.Instance.ScenesCompleted[1] && AplicationModel.PlayerResponseTime[1] == 0.00000f ) {
+            /*if(!Player.Instance.ScenesCompleted[1] && AplicationModel.PlayerResponseTime[1] == 0.00000f ) {
                 AplicationModel.PlayerResponseTime[1] = (DateTime.Now - timeStarted).Seconds - introAudioLength;
-            }
+            }*/
 
             //Cobre o jogo, retira os listeners dos botões, destroi o botão clicado e ativa a imagem na parede
             canvasController.showBackgroundCover();        
@@ -103,12 +104,12 @@ public class Scene7Controller : MonoBehaviour
         //Adiciona os listeners dos botões    
         wrong1Button.onClick.AddListener(() => {
             buttonClicked(wrong1Object);
-            sceneMiss("playMissAudio", 2f);
+            sceneMiss("playMissAudio", 6f);
         });
 
         wrong2Button.onClick.AddListener(() => {
             buttonClicked(wrong2Object);
-            sceneMiss("playMissAudio", 2f);
+            sceneMiss("playMissAudio", 6f);
         });
 
         correctButton.onClick.AddListener(() => {

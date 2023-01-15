@@ -153,7 +153,7 @@ RectTransform:
   m_Children:
   - {fileID: 607946834}
   m_Father: {fileID: 952371156}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.26821768, y: 0.2668355}
   m_AnchorMax: {x: 0.69200003, y: 0.43332905}
@@ -281,7 +281,7 @@ RectTransform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 952371156}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8424586, y: 0.21039714}
   m_AnchorMax: {x: 1, y: 0.3643445}
@@ -370,7 +370,7 @@ RectTransform:
   m_LocalScale: {x: -1.00023, y: 1.00023, z: 1.00023}
   m_Children: []
   m_Father: {fileID: 952371156}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.32678235, y: 0.40267098}
   m_AnchorMax: {x: 0.64743537, y: 0.828329}
@@ -581,7 +581,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave: {fileID: 800159769}
-  rainPrefab: {fileID: 191326, guid: b046278bb9b6e104790392b566667ba5, type: 3}
   waveObject: {fileID: 800159765}
   bgAfter: {fileID: 1903264350}
   target: {fileID: 252687338}
@@ -965,7 +964,7 @@ GameObject:
   - component: {fileID: 856145175}
   - component: {fileID: 856145178}
   m_Layer: 5
-  m_Name: ImgToucan
+  m_Name: Caco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -983,7 +982,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 952371156}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.2668355}
   m_AnchorMax: {x: 0.14, y: 0.69219154}
@@ -1028,7 +1027,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 876cbbdd532c9754aaad0780d26f0d8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 86e4bc47c7202094fae33edb730018ca, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1189,6 +1188,7 @@ RectTransform:
   - {fileID: 1903264351}
   - {fileID: 648704294}
   - {fileID: 1632471162}
+  - {fileID: 1537485676}
   - {fileID: 856145174}
   - {fileID: 181275094}
   - {fileID: 428076629}
@@ -1618,6 +1618,80 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422827334}
+  m_CullTransparentMesh: 0
+--- !u!1 &1537485675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1537485676}
+  - component: {fileID: 1537485678}
+  - component: {fileID: 1537485677}
+  m_Layer: 5
+  m_Name: Tronco Caco
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1537485676
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537485675}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1144267, y: 1.1144267, z: 1.1144267}
+  m_Children: []
+  m_Father: {fileID: 952371156}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.2668355}
+  m_AnchorMax: {x: 0, y: 0.2668355}
+  m_AnchoredPosition: {x: 140.41006, y: 231.21002}
+  m_SizeDelta: {x: 254.39313, y: 361.64655}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1537485677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537485675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5ff8096273d6af947b8e1d76bd4358f7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1537485678
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537485675}
   m_CullTransparentMesh: 0
 --- !u!1 &1632471161
 GameObject:

@@ -1,41 +1,24 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-
-using DigitalRuby.RainMaker;
 using System.Threading;
 
 public class Scene5Controller : MonoBehaviour
 {
     [SerializeField] private Button cowButton, garbageButton, treesButton;
-    [SerializeField] private GameObject rainPrefab, cowObject, garbageObject, treesObject;
+    [SerializeField] private GameObject cowObject, garbageObject, treesObject;
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private GoogleSheetsController sheetsController;
     [SerializeField] private Scene5CanvasController canvasController;
     [SerializeField] private Scene5NarratorController narratorController;
     private static float introAudioLength = 6.2f;
-    private DateTime timeStarted;
-    private RainScript2D rainScript;
+    private DateTime timeStarted;    
     private enum Tcontroller { CANVAS, SPRITE, SELF, SCENE_LOADER }
-
-    public void setFirstTimeInScene()
-    {
-        AplicationModel.isFirstTimeScene2 = true;
-    }
 
     public void showHelp()
     {
         playANarratorAudio("playHelpAudio", "leaveHelpInterface", 9f);
         canvasController.changeToHelpInterface();
-    }
-
-    private void startRaining()
-    {
-        rainScript =
-            ( Instantiate(rainPrefab) ).GetComponent<RainScript2D>();
-        rainScript.RainHeightMultiplier = 0f;
-        rainScript.RainWidthMultiplier = 1.12f;
-        Destroy(rainScript.gameObject, 8f);
     }
 
     private void playANarratorAudio(
@@ -61,7 +44,7 @@ public class Scene5Controller : MonoBehaviour
 
     public void sceneMiss(string audioToInvoke, float audioLength)
     {
-        AplicationModel.Scene2Misses++;
+        AplicationModel.Scene5Misses++;        
         playANarratorAudio(audioToInvoke, "changeToTryAgainInterface", audioLength);
     }
 
@@ -74,12 +57,12 @@ public class Scene5Controller : MonoBehaviour
 
     void Start()
     {
-        timeStarted = DateTime.Now;
-        AplicationModel.SceneAcesses[1]++;
+        //timeStarted = DateTime.Now;
+        //AplicationModel.SceneAcesses[1]++;
 
-        if(AplicationModel.isFirstTimeScene2) {
+        if(AplicationModel.isFirstTimeScene5) {
 
-            AplicationModel.isFirstTimeScene2 = false;
+            AplicationModel.isFirstTimeScene5 = false;
             canvasController.showBackgroundCover();
             playANarratorAudio("playIntroductionAudio", "hideBackgroundCover", introAudioLength);
 
@@ -89,15 +72,15 @@ public class Scene5Controller : MonoBehaviour
 
         //Define a ação "treesClicked"
         Action treesClicked = () => {
-            setFirstTimeInScene();
+            AplicationModel.isFirstTimeScene5 = true;
 
             playANarratorAudio("playTreesSelectedAudio", null, 12.4f);
             playANarratorAudio("playSceneCompletedAudio", "loadScene6", 2f, Tcontroller.SCENE_LOADER, 12.6f);
 
-            if(!Player.Instance.ScenesCompleted[3]) {
+            if(!Player.Instance.ScenesCompleted[4]) {
                 //sendDataToReport();
                 new Thread(sheetsController.SavePlayerProgress).Start();
-                Player.Instance.ScenesCompleted[3] = true;
+                Player.Instance.ScenesCompleted[4] = true;
             }
         };
 
@@ -105,9 +88,9 @@ public class Scene5Controller : MonoBehaviour
         Action<GameObject, Button> buttonClicked = (gameObject, button) => {
             Button[] buttons = {cowButton, treesButton, garbageButton};
 
-            if(!Player.Instance.ScenesCompleted[1] && AplicationModel.PlayerResponseTime[1] == 0.00000f ) {
+            /*if(!Player.Instance.ScenesCompleted[1] && AplicationModel.PlayerResponseTime[1] == 0.00000f ) {
                 AplicationModel.PlayerResponseTime[1] = (DateTime.Now - timeStarted).Seconds - introAudioLength;
-            }
+            }*/
 
             //Cobre o jogo, retira os listeners dos botões, destroe o botão clicado e ativa o gameObject
             canvasController.showBackgroundCover();

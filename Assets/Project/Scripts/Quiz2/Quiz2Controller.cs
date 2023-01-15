@@ -27,23 +27,22 @@ public class Quiz2Controller : MonoBehaviour
         if(index <= 1) {    
             canvasController.Invoke("changeToQuestionTwo", narratorController.RightAnswerAudio.clip.length);
             narratorController.Invoke("playQuestion2Audio", narratorController.RightAnswerAudio.clip.length + 1f);
-        } else {
-            narratorController.Invoke("playSceneCompletedAudio", narratorController.RightAnswerAudio.clip.length);
+        } else {            
             sceneLoader.Invoke("loadConnectFigures", narratorController.RightAnswerAudio.clip.length + 1f);
         }
     }
 
     //Chamado pelo botão incorreto
     public void wrongAnswer(Button button)
-    {        
+    {     
         canvasController.setAnswerEffect(button, false);
         audioController.missSound();
         narratorController.playWrongAnswerAudio();
-        AplicationModel.Scene3Misses[index]++;
+        AplicationModel.Scene10Misses[index]++;
     }
 
     public void repeatQuestionBtn() {
-        if (index <= 1) {
+        if (index == 0) {
             narratorController.playQuestion1Audio();
         } else {
             narratorController.playQuestion2Audio();

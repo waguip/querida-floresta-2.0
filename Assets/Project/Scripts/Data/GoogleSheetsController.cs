@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 public class GoogleSheetsController : MonoBehaviour
 {
-    const string FINAL_COL = "I";
+    const string FINAL_COL = "L";
     static SheetsService service;
 
     public void StartSheets()
@@ -85,12 +85,9 @@ public class GoogleSheetsController : MonoBehaviour
         data.AddRange(playerData);
         valueRange.Values = new List<IList<object>> {data};
 
-        var append = service.Spreadsheets.Values.Append(
-            valueRange, Credentials.ID, range
-        );
+        var append = service.Spreadsheets.Values.Append( valueRange, Credentials.ID, range );
 
-        append.ValueInputOption = SpreadsheetsResource.ValuesResource.
-            AppendRequest.ValueInputOptionEnum.USERENTERED;
+        append.ValueInputOption = SpreadsheetsResource.ValuesResource.AppendRequest.ValueInputOptionEnum.USERENTERED;
 
         try { append.Execute(); }
         catch(System.Exception) { return false; }
@@ -120,6 +117,7 @@ public class GoogleSheetsController : MonoBehaviour
     public void SavePlayerProgress()
     {
         int id = FindUser(Player.Instance.Name) + 1;
-        if(id != 0) UpdateEntry(id.ToString(), Player.Instance.ToObjectList());
+        if(id != 0) 
+            UpdateEntry(id.ToString(), Player.Instance.ToObjectList());
     }
 }

@@ -45,8 +45,7 @@ public class Scene5NarratorController : NarratorController
 
     public void playSceneCompletedAudio()
     {
-        audioController.sceneCompletedSound();
-        playAudio(sceneCompletedAudio);
+        audioController.sceneCompletedSound();        
     }
 
     public void playHelpAudio()

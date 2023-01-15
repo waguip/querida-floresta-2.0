@@ -13,7 +13,7 @@ class Player // Singleton
 
     public string Id { get; set; } 
     public string Name { get; set; }
-    public bool[] ScenesCompleted { get; } = new bool[7];
+    public bool[] ScenesCompleted { get; } = new bool[10];
 
     private Player() {}
 

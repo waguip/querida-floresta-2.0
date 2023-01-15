@@ -34,6 +34,7 @@ public class Scene9Controller : MonoBehaviour
     {
         //Enviado por "Slot" quando erra
         if(correct == -1) {
+            AplicationModel.Scene9Misses++;
             audioController.missSound();
             canvasController.Invoke("changeToTryAgainInterface", 1f);
             narratorController.Invoke("playMissClickAudio", 1f);
@@ -49,17 +50,16 @@ public class Scene9Controller : MonoBehaviour
     }
 
     private void win() {        
+        AplicationModel.isFirstTimeScene9 = true;
+        if(!Player.Instance.ScenesCompleted[8]) {            
+            new Thread(sheetsController.SavePlayerProgress).Start();
+            Player.Instance.ScenesCompleted[8] = true;
+        }
+
         canvasController.windPreventionAnimation();
         audioController.sceneCompletedSound();        
         narratorController.Invoke("playCongratsAudio", 3f);
         audioLength = narratorController.congratsAudioLength() + 5f;
-
-        if(!Player.Instance.ScenesCompleted[5]) {
-            //sendDataToReport();
-            new Thread(sheetsController.SavePlayerProgress).Start();
-            Player.Instance.ScenesCompleted[5] = true;
-        }
-
         sceneLoader.Invoke("loadQuiz2", audioLength);
     }
 }

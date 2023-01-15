@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class Scene9CanvasController : MonoBehaviour
 {
     [SerializeField] private Button tryAgainButton;
-    [SerializeField] private GameObject toucanObj, quitBtnObj, backgroundCoverObj;
-    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject quitBtnObj, backgroundCoverObj;
+    [SerializeField] RectTransform caco;
+        private Animator animator;
 
     private void Start() {
         animator = GetComponent<Animator>();
@@ -20,13 +21,14 @@ public class Scene9CanvasController : MonoBehaviour
     }   
 
     public void changeToTryAgainInterface()
-    {
-        toucanObj.SetActive(false);
+    {            
         backgroundCoverObj.GetComponent<RectTransform>().SetAsLastSibling();
         backgroundCoverObj.GetComponent<Image>().color = new Vector4(0f, 0f, 0f, 0.5f);
         showBackgroundCover();
         tryAgainButton.GetComponent<RectTransform>().SetAsLastSibling();
         tryAgainButton.gameObject.SetActive(true);
+        caco.SetAsLastSibling();
+        caco.position = new Vector3(0f, 0.75f, 0f);        
     }
 
     public void hideBackgroundCover()

@@ -10,6 +10,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GoogleSheetsController sheetsController;
     private AudioClip speechClip;
     private float clipLength;    
+    [SerializeField] private Animator animatorCaco;
 
     void Start() // Start is called before the first frame update
     {
@@ -48,14 +49,21 @@ public class MainMenuController : MonoBehaviour
         buttonsObj.SetActive(false);
 
         if(isCaco){
-            clipLength = narratorController.playSpeechAudioCaco();
+            clipLength = narratorController.playSpeechAudioCaco();            
             toco.SetActive(false);
+            animatorCaco.SetBool("isSpeaking", true);
+            Invoke("stopSpeakingAnimation", clipLength);
         } else {
             clipLength = narratorController.playSpeechAudio();
-            caco.SetActive(false);
+            caco.SetActive(false);            
         }
 
         Invoke("ShowButtons", clipLength + 1);        
+    }
+
+    private void stopSpeakingAnimation()
+    {
+        animatorCaco.SetBool("isSpeaking", false);
     }
 
     public void QuitButtonAction()

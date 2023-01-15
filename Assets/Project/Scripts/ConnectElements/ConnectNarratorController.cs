@@ -10,6 +10,11 @@ public class ConnectNarratorController : NarratorController
         return introductionAudio.clip.length;
     }
 
+    public void playIntroductionAudioButton()
+    {
+        playAudio(introductionAudio);        
+    }
+
     public void playMissClickAudio()
     {
         playAudio(missClickAudio);

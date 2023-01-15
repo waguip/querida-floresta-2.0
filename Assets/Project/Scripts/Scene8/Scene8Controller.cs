@@ -1,10 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-using DigitalRuby.RainMaker;
-using System;
+﻿using UnityEngine;
+using System.Threading;
 
 public class Scene8Controller : MonoBehaviour
 {
@@ -15,10 +10,8 @@ public class Scene8Controller : MonoBehaviour
     [SerializeField] private AudioController audioController;
     [SerializeField] private Scene8NarratorController narratorController;
     [SerializeField] private Scene8CanvasController canvasController;
-    [SerializeField] private SceneLoader sceneLoader;        
-    [SerializeField] private Transform hotZoneSlot, target;    
-    [SerializeField] private Sprite rockAfter;
-    private bool toTarget = false, toHotZone = false;
+    [SerializeField] private GoogleSheetsController sheetsController;
+    [SerializeField] private SceneLoader sceneLoader;            
 
     void Start() {
         //Se for a primeira vez nessa fase
@@ -38,6 +31,7 @@ public class Scene8Controller : MonoBehaviour
     {
         //Enviado por "Slot" quando erra
         if(correct == -1) {
+            AplicationModel.Scene8Misses++;
             audioController.missSound();
             canvasController.Invoke("changeToTryAgainInterface", 1f);
             narratorController.Invoke("playMissClickAudio", 1f);
@@ -52,7 +46,13 @@ public class Scene8Controller : MonoBehaviour
     }
 
     private void win() {
-        //Toca animaçãp        
+        AplicationModel.isFirstTimeScene8 = true;
+        if(!Player.Instance.ScenesCompleted[7]) {            
+            new Thread(sheetsController.SavePlayerProgress).Start();
+            Player.Instance.ScenesCompleted[7] = true;
+        }
+
+        //Toca animação
         canvasController.erosionAnimation();
         audioController.sceneCompletedSound();        
         narratorController.Invoke("playCongratsAudio", 3f);

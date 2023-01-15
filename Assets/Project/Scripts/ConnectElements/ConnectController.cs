@@ -34,9 +34,13 @@ public class ConnectController : MonoBehaviour
     {
         //Enviado por "Slot" quando erra
         if(correct == -1) {
-            audioController.missSound();
-            canvasController.Invoke("changeToTryAgainInterface", 1f);
-            narratorController.Invoke("playMissClickAudio", 1f);
+
+            AplicationModel.Scene10Misses[2]++;
+        
+            canvasController.showBackgroundCover();
+            audioController.missSound();            
+            narratorController.playMissClickAudio();
+            sceneLoader.Invoke("loadConnectFigures", 6f);
             correct = 0;
         }
 
@@ -49,13 +53,14 @@ public class ConnectController : MonoBehaviour
 
     private void win() {
         audioController.sceneCompletedSound();
-        narratorController.Invoke("playCongratsAudio", 3f);
-        audioLength = narratorController.congratsAudioLength() + 5f;
+        narratorController.Invoke("playCongratsAudio", 2f);
+        audioLength = narratorController.congratsAudioLength() + 4f;
 
-        if(!Player.Instance.ScenesCompleted[6]) {
+        AplicationModel.isFirstTimeSceneConnect = true;
+        if(!Player.Instance.ScenesCompleted[9]) {
             //sendDataToReport();
             new Thread(sheetsController.SavePlayerProgress).Start();
-            Player.Instance.ScenesCompleted[6] = true;
+            Player.Instance.ScenesCompleted[9] = true;
         }
 
         sceneLoader.Invoke("loadMainMenu", audioLength);

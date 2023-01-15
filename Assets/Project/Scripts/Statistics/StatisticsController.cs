@@ -7,8 +7,7 @@ public class StatisticsController : MonoBehaviour
 
     private string ErrorQuantity(byte sceneMisses)
     {
-        return "\t\tQuantidade de erros: " + AplicationModel.Scene2Misses + 
-            "\n";
+        return "\t\tQuantidade de erros: " + sceneMisses + "\n";
     }
 
     private string ErrorQuantity(string noun, byte[] sceneMisses)
@@ -39,7 +38,21 @@ public class StatisticsController : MonoBehaviour
                 ResponseTime(AplicationModel.PlayerResponseTime[1]),
             "Atividade 3\n" +
                 ErrorQuantity("Questão", AplicationModel.Scene3Misses) +
-                ResponseTime(AplicationModel.PlayerResponseTime[2])
+                ResponseTime(AplicationModel.PlayerResponseTime[2]),
+            "Atividade 4\n" +
+                ErrorQuantity(AplicationModel.Scene4Misses),          
+            "Atividade 5\n" +
+                ErrorQuantity(AplicationModel.Scene5Misses),
+            "Atividade 6\n" +
+                ErrorQuantity(AplicationModel.Scene6Misses),
+            "Atividade 7\n" +
+                ErrorQuantity(AplicationModel.Scene7Misses),
+            "Atividade 8\n" +
+                ErrorQuantity(AplicationModel.Scene8Misses),
+            "Atividade 9\n" +
+                ErrorQuantity(AplicationModel.Scene9Misses),
+            "Atividade 10\n" +
+                ErrorQuantity("Questão", AplicationModel.Scene10Misses)
         };
 
         for (int i = 0; i < reportTxt.Length; i++) {
