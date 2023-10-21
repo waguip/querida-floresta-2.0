@@ -6,7 +6,7 @@ public class CanvasS2Controller : MonoBehaviour
 {
     [SerializeField] private Button tryAgainButton;
     [SerializeField] private GameObject backgroundCoverObj, toucanObj,
-    tryAgainToucanObj, helpBtnObj, quitBtnObj, helpSignObj;
+    tryAgainToucanObj, helpBtnObj, quitBtnObj, helpSignObj, repeatBtnObj;
 
     public void hideBackgroundCover() // Invoked by Scene2Controller
     {
@@ -33,6 +33,7 @@ public class CanvasS2Controller : MonoBehaviour
     {
         helpBtnObj.SetActive(!isHelpInterfaceOn);
         quitBtnObj.SetActive(!isHelpInterfaceOn);
+        repeatBtnObj.SetActive(!isHelpInterfaceOn);
         helpSignObj.SetActive(isHelpInterfaceOn);
     }
 

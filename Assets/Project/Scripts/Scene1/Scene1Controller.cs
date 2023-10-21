@@ -12,7 +12,7 @@ public class Scene1Controller : MonoBehaviour
     [SerializeField] private CanvasS1Controller canvasController;
     [SerializeField] private Scene1NarratorController narratorController;
     [SerializeField] private AudioSource cloudAudio;
-    [SerializeField] private AudioController audioController;
+    [SerializeField] private AudioController audioController;    
     private bool gameOn, lessClouds;
     private int cloudCounter, cloudNumber, levelCounter;
     private const float introAudioLength = 10.67f;
@@ -44,12 +44,11 @@ public class Scene1Controller : MonoBehaviour
 
     private void moveToNextCloud()
     {
-        cloudTransform =
-            difficultyObj.transform.GetChild(cloudCounter).transform;
+        cloudTransform = difficultyObj.transform.GetChild(cloudCounter).transform;
         newHeight = cloudTransform.position.y + 5f;
 
         Transform tranformAux = difficultyObj.transform.GetChild(cloudCounter);
-        cloudRenderer = tranformAux.GetComponent<SpriteRenderer>();
+        cloudRenderer = tranformAux.GetComponent<SpriteRenderer>();        
     }
 
     private void playANarratorAudio(
@@ -80,6 +79,7 @@ public class Scene1Controller : MonoBehaviour
     {
         if(gameOn)
         {
+            gameOn = false;
             // Player clicked on the right moment
             if(cloudCounter == cloudNumber)
             {
@@ -103,10 +103,11 @@ public class Scene1Controller : MonoBehaviour
                             : "loadPlayersForest",
                         9f
                     );
-                    if(!Player.Instance.ScenesCompleted[0]) {
-                        sendDataToReport();
+                    if(!Player.Instance.ScenesCompleted[0]) {                                              
                         Player.Instance.ScenesCompleted[0] = true;
+                        canvasController.changeQuantityTxt(214);  
                         new Thread(sheetsController.SavePlayerProgress).Start();
+                        sendDataToReport();
                     }
                 }
             }
@@ -122,8 +123,7 @@ public class Scene1Controller : MonoBehaviour
                 canvasController.changeToTryAgainInterface();
                 playMissClickAudio();
             }
-            musicPlayer.setMusicVolume(0.1f);
-            gameOn = false;
+            musicPlayer.setMusicVolume(0.1f);            
         }
     }
 
@@ -139,7 +139,7 @@ public class Scene1Controller : MonoBehaviour
     {
         GameObject difficultyObj = difficultiesObj.transform.GetChild(levelCounter).gameObject;
         difficultyObj.SetActive(true);
-        this.difficultyObj = GameObject.Instantiate(difficultyObj);
+        this.difficultyObj = GameObject.Instantiate(difficultyObj);    
         difficultyObj.SetActive(false);
     }
 
@@ -156,9 +156,11 @@ public class Scene1Controller : MonoBehaviour
         moveToNextCloud();
     }
 
-    private void playIntroductionAudio()
+    public void playIntroductionAudio()
     {
-        if(levelCounter == 1)
+        if(levelCounter == 0)         
+            playANarratorAudio("playIntroduction1Audio", "showButtons", introAudioLength);
+        else if(levelCounter == 1)
             playANarratorAudio("playIntroduction2Audio", "showButtons", 7f);
         else if(levelCounter == 2)
             playANarratorAudio("playIntroduction3Audio", "showButtons", 10f);
@@ -222,9 +224,7 @@ public class Scene1Controller : MonoBehaviour
         levelCounter = 0;
 
         moveToNextCloud();
-        playANarratorAudio(
-            "playIntroduction1Audio", "showButtons", introAudioLength
-        );
+        playIntroductionAudio();        
     }
 
     void Update() // Update is called once per frame
@@ -236,7 +236,9 @@ public class Scene1Controller : MonoBehaviour
                 timeCounter += Time.deltaTime;
 
                 if(cloudCounter < cloudNumber)
-                {
+                {                                                                                
+                    cloudRenderer.gameObject.SetActive(true);                          
+
                     cloudTransform.position = new Vector2(
                         cloudTransform.position.x,
                         Mathf.Lerp(-2.68f, newHeight, timeCounter / timeGap)
@@ -246,7 +248,7 @@ public class Scene1Controller : MonoBehaviour
                         Mathf.Lerp(0.066f, 0.2f, timeCounter / timeGap),
                         Mathf.Lerp(0.093f, 0.22f, timeCounter / timeGap),
                         1f
-                    );
+                    );                    
 
                     cloudRenderer.color = new Vector4(
                         255f, 255f, 255f,

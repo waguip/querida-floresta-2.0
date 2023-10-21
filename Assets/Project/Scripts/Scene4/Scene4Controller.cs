@@ -19,16 +19,11 @@ public class Scene4Controller : MonoBehaviour
     [SerializeField] private SceneLoader sceneLoader;
     private RainScript2D rainScript;
     [SerializeField] private GameObject rainPrefab;
-
+    
     void Start() {
         if(AplicationModel.isFirstTimeScene4) {
-            AplicationModel.isFirstTimeScene4 = false;
-            
-            //"Cobre" a tela para impedir clicks
-            canvasController.showBackgroundCover();
-            //Retira o cover após o audio tocar
-            audioLength = narratorController.playIntroductionAudio();
-            canvasController.Invoke("hideBackgroundCover", audioLength);
+            AplicationModel.isFirstTimeScene4 = false;            
+            playIntroductionAudio();
         }
     }
 
@@ -49,13 +44,22 @@ public class Scene4Controller : MonoBehaviour
         }
     }
 
+    public void playIntroductionAudio() {
+        //"Cobre" a tela para impedir clicks
+        canvasController.showBackgroundCover();
+        //Retira o cover após o audio tocar
+        audioLength = narratorController.playIntroductionAudio();
+        canvasController.Invoke("hideBackgroundCover", audioLength);
+    }
+
     private void win() {        
         AplicationModel.isFirstTimeScene4 = true;
         if(!Player.Instance.ScenesCompleted[3]) {            
-            new Thread(sheetsController.SavePlayerProgress).Start();
             Player.Instance.ScenesCompleted[3] = true;
+            new Thread(sheetsController.SavePlayerProgress).Start();
         }
 
+        canvasController.showBackgroundCover();
         audioController.sceneCompletedSound();
         Invoke("startRaining", 1f);
         narratorController.Invoke("playCongratsAudio", 3f); 

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class SceneSelectionController : MonoBehaviour
 {
     [SerializeField] private Button scene1Btn, scene2Btn, scene3Btn, scene4Btn, scene6Btn, scene8Btn, scene10Btn;
+    [SerializeField] private AudioSource introAudio;
 
     void Start()
     {
@@ -31,5 +32,9 @@ public class SceneSelectionController : MonoBehaviour
 
             x++;
         }
+    }
+
+    public void playIntroductionAudio() {
+        introAudio.Play();
     }
 }

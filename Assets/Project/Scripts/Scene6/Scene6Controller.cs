@@ -43,13 +43,16 @@ public class Scene6Controller : MonoBehaviour
         ReportCreator.writeResponseTime(AplicationModel.PlayerResponseTime[2]);
     }
 
+    public void playIntroductionAudio() {
+        canvasController.showBackgroundCover();
+        playANarratorAudio("playIntroductionAudio", "hideBackgroundCover", introAudioLength);
+    }
+
     void Start()
     {
         timeStarted = DateTime.Now;
-        //AplicationModel.SceneAcesses[5]++;
-    
-        canvasController.showBackgroundCover();
-        playANarratorAudio("playIntroductionAudio", "hideBackgroundCover", introAudioLength);        
+        //AplicationModel.SceneAcesses[5]++;            
+        playIntroductionAudio();
 
         //Define a ação "waveClicked"
         Action waveClicked = () => {            

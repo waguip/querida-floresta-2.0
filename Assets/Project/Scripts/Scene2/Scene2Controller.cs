@@ -62,6 +62,11 @@ public class Scene2Controller : MonoBehaviour
         }
     }
 
+    public void playIntroductionAudio() {
+        canvasController.showBackgroundCover();
+        playANarratorAudio("playIntroductionAudio", "hideBackgroundCover", introAudioLength);
+    }
+
     public void sceneMiss(string audioToInvoke, float audioLength)
     {
         AplicationModel.Scene2Misses++;
@@ -87,10 +92,7 @@ public class Scene2Controller : MonoBehaviour
         if(AplicationModel.isFirstTimeScene2)
         {
             AplicationModel.isFirstTimeScene2 = false;
-            canvasController.showBackgroundCover();
-            playANarratorAudio(
-                "playIntroductionAudio", "hideBackgroundCover", introAudioLength
-            );
+            playIntroductionAudio();
         }
         else introAudioLength = 0f;
 
@@ -123,9 +125,9 @@ public class Scene2Controller : MonoBehaviour
             );
 
             if(!Player.Instance.ScenesCompleted[1]) {
-                sendDataToReport();
-                new Thread(sheetsController.SavePlayerProgress).Start();
                 Player.Instance.ScenesCompleted[1] = true;
+                new Thread(sheetsController.SavePlayerProgress).Start();
+                sendDataToReport();
             }
         };
 

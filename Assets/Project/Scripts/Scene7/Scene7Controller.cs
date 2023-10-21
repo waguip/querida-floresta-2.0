@@ -56,20 +56,20 @@ public class Scene7Controller : MonoBehaviour
         ReportCreator.writeResponseTime(AplicationModel.PlayerResponseTime[1]);
     }
 
+    public void playIntroductionAudio() {
+        canvasController.showBackgroundCover();
+        playANarratorAudio("playIntroductionAudio", "hideBackgroundCover", introAudioLength);
+    }
+
     void Start()
     {
         //timeStarted = DateTime.Now;
         //AplicationModel.SceneAcesses[1]++;
 
         if(AplicationModel.isFirstTimeScene7) {
-
             AplicationModel.isFirstTimeScene7 = false;
-            canvasController.showBackgroundCover();
-            playANarratorAudio("playIntroductionAudio", "hideBackgroundCover", introAudioLength);
-
-        } else {
-            introAudioLength = 0f;
-        }              
+            playIntroductionAudio();
+        }
 
         //Define a ação "correctClicked"
         Action correctClicked = () => {   

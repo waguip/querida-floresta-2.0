@@ -55,20 +55,20 @@ public class Scene5Controller : MonoBehaviour
     //     ReportCreator.writeResponseTime(AplicationModel.PlayerResponseTime[1]);
     // }
 
+    public void playIntroductionAudio() {
+        canvasController.showBackgroundCover();
+        playANarratorAudio("playIntroductionAudio", "hideBackgroundCover", introAudioLength);
+    }
+    
     void Start()
     {
         //timeStarted = DateTime.Now;
         //AplicationModel.SceneAcesses[1]++;
 
         if(AplicationModel.isFirstTimeScene5) {
-
             AplicationModel.isFirstTimeScene5 = false;
-            canvasController.showBackgroundCover();
-            playANarratorAudio("playIntroductionAudio", "hideBackgroundCover", introAudioLength);
-
-        } else {
-            introAudioLength = 0f;
-        }              
+            playIntroductionAudio();
+        }            
 
         //Define a ação "treesClicked"
         Action treesClicked = () => {
