@@ -20,8 +20,13 @@ public class Scene9Controller : MonoBehaviour
 
     void Start() {
         if(AplicationModel.isFirstTimeScene9) {
-            AplicationModel.isFirstTimeScene9 = false;            
-            playIntroductionAudio();
+            AplicationModel.isFirstTimeScene9 = false;
+            
+            //"Cobre" a tela para impedir clicks
+            canvasController.showBackgroundCover();
+            //Retira o cover após o audio tocar
+            audioLength = narratorController.playIntroductionAudio();
+            canvasController.Invoke("hideBackgroundCover", audioLength);
         }
     }
 
@@ -44,14 +49,6 @@ public class Scene9Controller : MonoBehaviour
         
     }
 
-    public void playIntroductionAudio() {
-        //"Cobre" a tela para impedir clicks
-        canvasController.showBackgroundCover();
-        //Retira o cover após o audio tocar
-        audioLength = narratorController.playIntroductionAudio();
-        canvasController.Invoke("hideBackgroundCover", audioLength);
-    }
-
     private void win() {        
         AplicationModel.isFirstTimeScene9 = true;
         if(!Player.Instance.ScenesCompleted[8]) {            
@@ -59,7 +56,6 @@ public class Scene9Controller : MonoBehaviour
             Player.Instance.ScenesCompleted[8] = true;
         }
 
-        canvasController.showBackgroundCover();
         canvasController.windPreventionAnimation();
         audioController.sceneCompletedSound();        
         narratorController.Invoke("playCongratsAudio", 3f);

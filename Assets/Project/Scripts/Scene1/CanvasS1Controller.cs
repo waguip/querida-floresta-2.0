@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class CanvasS1Controller : MonoBehaviour
 {
     [SerializeField] private GameObject backgroundCoverObj, toucanObj,
-    levelTxtObj, nextLevelBtnObj, quitBtnObj, helpBtnObj, startBtnObj, repeatBtnObj,
+    levelTxtObj, nextLevelBtnObj, quitBtnObj, helpBtnObj, startBtnObj,
     tryAgainBtnObj, levelSignObj, mouseObj;
     [SerializeField] private Text cloudQuantityTxt;
 
@@ -20,14 +20,14 @@ public class CanvasS1Controller : MonoBehaviour
 
     public void showButtons() // Invoked in Scene1Controller
     {
-        GameObject[] buttons = {startBtnObj, helpBtnObj, quitBtnObj, repeatBtnObj};
+        GameObject[] buttons = {startBtnObj, helpBtnObj, quitBtnObj};
 
         foreach (GameObject buttonObj in buttons) buttonObj.SetActive(true);
     }
 
     public void hideButtons()
     {
-        GameObject[] buttons = {startBtnObj, helpBtnObj, quitBtnObj, repeatBtnObj};
+        GameObject[] buttons = {startBtnObj, helpBtnObj, quitBtnObj};
 
         foreach (GameObject buttonObj in buttons) buttonObj.SetActive(false);
     }

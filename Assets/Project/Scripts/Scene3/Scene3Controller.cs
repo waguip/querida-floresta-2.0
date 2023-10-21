@@ -81,9 +81,9 @@ public class Scene3Controller : MonoBehaviour
                     narratorController.RightAnswerAudio.clip.length + 3f
                 );
                 if(!Player.Instance.ScenesCompleted[2]) {
+                    sendDataToReport();
                     Player.Instance.ScenesCompleted[2] = true;
                     new Thread(sheetsController.SavePlayerProgress).Start();
-                    sendDataToReport();
                 }
             });
             word2Btn.onClick.AddListener( () => setWrongAnswer(word2Btn) );

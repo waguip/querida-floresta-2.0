@@ -1250,9 +1250,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Desenvolvido por:\nLuan Leme\nWagner Pichler Junior\n\nDesign gr\xE1fico
     por:\nLuan Leme\nMariana Valentim\nWagner Pichler Junior\n\nOrientadora:\nProf.
-    Simone Nasser Matos\n\nFinanciamento:\nBolsa do Edital 02/2020 - PROREC - Extens\xE3o\nFunda\xE7\xE3o
-    Arauc\xE1ria\n\nImagens obtidas de:\nvecteezy.com\npixabay.com\npikpng.com\n\nEfeitos
-    sonoros obtidos de:\nzapsplat.com"
+    Simone Nasser Matos\n\nFinanciamento:\nBolsa do Edital 02/2020 - PROREC - Extens\xE3o\n\nImagens
+    obtidas de:\nvecteezy.com\npixabay.com\npikpng.com\n\nEfeitos sonoros obtidos
+    de:\nzapsplat.com"
 --- !u!222 &1784981815
 CanvasRenderer:
   m_ObjectHideFlags: 0

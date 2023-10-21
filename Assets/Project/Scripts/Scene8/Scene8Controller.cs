@@ -16,8 +16,14 @@ public class Scene8Controller : MonoBehaviour
     void Start() {
         //Se for a primeira vez nessa fase
         if(AplicationModel.isFirstTimeScene8) {
-            AplicationModel.isFirstTimeScene8 = false;            
-            playIntroductionAudio();
+            AplicationModel.isFirstTimeScene8 = false;
+            
+            //"Cobre" a tela para impedir clicks
+            canvasController.showBackgroundCover();
+            //Toca o audio
+            audioLength = narratorController.playIntroductionAudio();
+            //Retira o cover após o audio tocar
+            canvasController.Invoke("hideBackgroundCover", audioLength);
         }
     }
 
@@ -39,15 +45,6 @@ public class Scene8Controller : MonoBehaviour
         }
     }
 
-    public void playIntroductionAudio() {
-        //"Cobre" a tela para impedir clicks
-        canvasController.showBackgroundCover();
-        //Toca o audio
-        audioLength = narratorController.playIntroductionAudio();
-        //Retira o cover após o audio tocar
-        canvasController.Invoke("hideBackgroundCover", audioLength);
-    }
-
     private void win() {
         AplicationModel.isFirstTimeScene8 = true;
         if(!Player.Instance.ScenesCompleted[7]) {            
@@ -56,7 +53,6 @@ public class Scene8Controller : MonoBehaviour
         }
 
         //Toca animação
-        canvasController.showBackgroundCover();
         canvasController.erosionAnimation();
         audioController.sceneCompletedSound();        
         narratorController.Invoke("playCongratsAudio", 3f);
